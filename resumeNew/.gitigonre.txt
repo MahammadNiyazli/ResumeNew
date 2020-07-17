@@ -1,0 +1,2 @@
+/ResumeDesktopApp2/target/
+/ResumeDbApp2/target/
