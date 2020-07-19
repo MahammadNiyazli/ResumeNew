@@ -61,7 +61,7 @@ public class UserDaoImpl extends AbstractDAO implements UserDaoInter {
         try {
             Connection c = connect();
             PreparedStatement stmt = c.prepareStatement("update user set name=?,surname=?,phone=?,email=?"
-                    + ",profile_description=?,birthdate=?,address=? where id=?");
+                    + ",profile_description=?,birthdate=?,address=?,birthplace_id=?,nationality_id=? where id=?");
             stmt.setString(1, u.getName());
             stmt.setString(2, u.getSurname());
             stmt.setString(3, u.getPhone());
@@ -69,7 +69,9 @@ public class UserDaoImpl extends AbstractDAO implements UserDaoInter {
             stmt.setString(5, u.getProfileDesc());
             stmt.setDate(6, new Date(u.getBirthDate().getTime()));
             stmt.setString(7, u.getAddress());
-            stmt.setInt(8, u.getId());
+            stmt.setInt(8, u.getBirthPlace().getId());
+            stmt.setInt(9, u.getNationality().getId());
+            stmt.setInt(10, u.getId());
             return stmt.execute();
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -26,9 +26,9 @@ public class MainUser extends javax.swing.JFrame {
         initComponents();
         fillUserComponents();
         panelProfile.fillUserComponents();
-        panelDetails.fillWindow();
         panelDetails.fillUserComponents();
-        
+        panelSkills.fillUserComponents();
+        panelHistory.fillTable();
     }
 
     private void fillUserComponents() {
@@ -74,31 +74,7 @@ public class MainUser extends javax.swing.JFrame {
 
         tbUserInfo.addTab("Profile", panelProfile);
         tbUserInfo.addTab("Details", panelDetails);
-
-        javax.swing.GroupLayout panelSkillsLayout = new javax.swing.GroupLayout(panelSkills);
-        panelSkills.setLayout(panelSkillsLayout);
-        panelSkillsLayout.setHorizontalGroup(
-            panelSkillsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 764, Short.MAX_VALUE)
-        );
-        panelSkillsLayout.setVerticalGroup(
-            panelSkillsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 456, Short.MAX_VALUE)
-        );
-
         tbUserInfo.addTab("Skills", panelSkills);
-
-        javax.swing.GroupLayout panelHistoryLayout = new javax.swing.GroupLayout(panelHistory);
-        panelHistory.setLayout(panelHistoryLayout);
-        panelHistoryLayout.setHorizontalGroup(
-            panelHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 764, Short.MAX_VALUE)
-        );
-        panelHistoryLayout.setVerticalGroup(
-            panelHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 456, Short.MAX_VALUE)
-        );
-
         tbUserInfo.addTab("Employment History", panelHistory);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -115,11 +91,9 @@ public class MainUser extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSave)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(591, 591, 591))))
+                        .addComponent(btnSave))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(tbUserInfo)
         );
         layout.setVerticalGroup(
@@ -135,14 +109,17 @@ public class MainUser extends javax.swing.JFrame {
                     .addComponent(txtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSave))
                 .addGap(33, 33, 33)
-                .addComponent(tbUserInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE))
+                .addComponent(tbUserInfo))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
        try {
+           
+            
 
             loggedInUser = panelDetails.getFilledUser(loggedInUser);
             loggedInUser = panelProfile.getFilledUser(loggedInUser);

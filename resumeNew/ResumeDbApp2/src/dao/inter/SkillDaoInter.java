@@ -1,6 +1,5 @@
 package dao.inter;
 
-import entity.EmploymentHistory;
 import entity.Skill;
 
 import java.util.List;
@@ -8,5 +7,11 @@ import java.util.List;
 public interface SkillDaoInter {
 
     public List<Skill> getAllSkill();
+    
+    public boolean insertSkill(Skill skill);
+    
+    public boolean removeSkill(int id);
+    
+    public boolean updateSkill(Skill skill);
 
 }

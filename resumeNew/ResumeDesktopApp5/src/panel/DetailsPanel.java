@@ -37,6 +37,7 @@ public class DetailsPanel extends javax.swing.JPanel {
 
     
     public void fillUserComponents(){
+        fillWindow();
         User loggedInUser = Config.loggedInUser;
         
         txtPhone.setText(loggedInUser.getPhone());
@@ -66,6 +67,8 @@ public class DetailsPanel extends javax.swing.JPanel {
         String phone = txtPhone.getText();
         String birthDate = txtBirthdate.getText();
         String address = txtAddress.getText();
+        Country birthplace = (Country) cbCountry.getSelectedItem();
+        Country nationality = (Country) cbNationality.getSelectedItem();
         
         try {
           
@@ -75,6 +78,8 @@ public class DetailsPanel extends javax.swing.JPanel {
         u.setEmail(email);
         u.setBirthDate(dt);
         u.setAddress(address);
+        u.setBirthPlace(birthplace);
+        u.setNationality(nationality);
         
         } catch (ParseException ex) {
            ex.printStackTrace();

@@ -1,2 +1,2 @@
-/ResumeDesktopApp2/target/
+/ResumeDesktopApp5/target/
 /ResumeDbApp2/target/
